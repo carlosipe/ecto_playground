@@ -2,6 +2,16 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
+config :ecto_playground, EctoPlayground.DB,
+  adapter: Ecto.Adapters.Postgres,
+  database: "ecto_simple",
+  username: "carlosipe",
+  password: "carlosipe",
+  hostname: "localhost",
+  port: "5432"
+
+config :ecto_playground, ecto_repos: [EctoPlayground.DB]
+
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
 # file won't be loaded nor affect the parent project. For this reason,

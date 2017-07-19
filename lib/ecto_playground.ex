@@ -8,6 +8,7 @@ defmodule EctoPlayground do
 
     # Define workers and child supervisors to be supervised
     children = [
+      supervisor(EctoPlayground.DB, [])
       # Starts a worker by calling: EctoPlayground.Worker.start_link(arg1, arg2, arg3)
       # worker(EctoPlayground.Worker, [arg1, arg2, arg3]),
     ]
@@ -18,3 +19,8 @@ defmodule EctoPlayground do
     Supervisor.start_link(children, opts)
   end
 end
+
+defmodule EctoPlayground.DB do
+  use Ecto.Repo, otp_app: :ecto_playground
+end
+
